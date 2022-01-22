@@ -1,6 +1,9 @@
 clear;
 close all;
 
+
+%% Chargement
+
 % Load ellipses.txt
 ellipses = fopen('ellipses.txt','r');
 
@@ -9,6 +12,7 @@ parametres_ell = parametres_ell';
 parametres_ell(1,:)
 fclose(ellipses);
 
+%% Parametre
 % Calcul excentricité des ellipses
 e = [];
 % Grand-axe
@@ -26,3 +30,6 @@ scatter(parametres_ell(:,2), parametres_ell(:,1));
 ylim([0 2654]);
 xlim([0 1998]);
 
+%% Calcul des normales
+%% SFS
+%% Calcul des profondeur
