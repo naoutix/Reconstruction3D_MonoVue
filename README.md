@@ -2,4 +2,4 @@
 
 ![GitHub license](https://img.shields.io/github/license/naoutix/Reconstruction3D_MonoVue)
 
-Bienvenue dans le dojo de la reconstruction 3D
+Projet realiser à l'ENSEEIHT sur la reconstruction 3D mono vue à partir de textons (ellipse) a partir de shade from texton et shading 
