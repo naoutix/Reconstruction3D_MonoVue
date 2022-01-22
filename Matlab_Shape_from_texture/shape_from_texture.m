@@ -29,7 +29,7 @@ figure(2);
 scatter(parametres_ell(:,2), parametres_ell(:,1));
 ylim([0 2654]);
 xlim([0 1998]);
-
+%% Filtrage
 %% Calcul des normales
 %% SFS
 %% Calcul des profondeur
