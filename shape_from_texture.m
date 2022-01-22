@@ -18,7 +18,7 @@ figure(1);
 scatter((1:length(angle))',angle');
 
 % Calcul excentricité des ellipses
-parametres_ell = parametres_ell(indices);
+parametres_ell = parametres_ell(indices,:);
 e = [];
 % Grand-axe
 a = parametres_ell(:,3);
@@ -33,20 +33,28 @@ ylim([0 2654]);
 xlim([0 1998]);
 
 % Calcul des normales
-R = 2;
+R = 40;
 psi = parametres_ell(:,5);
 
 nz = b./R;
 nx = sqrt(1-nz.^2)./sqrt(1+tan(psi).^2);
 ny = tan(psi).*(sqrt(1-nz.^2)./(1+tan(psi).^2));
 
+figure(3);
+quiver3(parametres_ell(:,1), parametres_ell(:,2), zeros(size(nx)), nx, ny, nz);
+axis equal
+
+figure(4);
+quiver3(parametres_ell(:,1), parametres_ell(:,2), zeros(size(nx)), -nx, -ny, nz);
+axis equal
+
 % Intégration du champ de normales :
 
-p_estime = reshape(-nx'./nz,size(masque));
-p_estime(exterieur) = 0;
-q_estime = reshape(-ny'./nz',size(masque));
-q_estime(exterieur) = 0;
-z_estime = integration_SCS(q_estime,p_estime);
+% p_estime = reshape(-nx'./nz,size(masque));
+% p_estime(exterieur) = 0;
+% q_estime = reshape(-ny'./nz',size(masque));
+% q_estime(exterieur) = 0;
+% z_estime = integration_SCS(q_estime,p_estime);
 
 
 
