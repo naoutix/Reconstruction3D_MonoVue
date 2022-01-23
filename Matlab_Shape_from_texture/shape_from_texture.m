@@ -32,7 +32,7 @@ nz = b./R;
 nx = sqrt(1-nz.^2)./sqrt(1+tan(psi).^2);
 ny = tan(psi).*(sqrt(1-nz.^2)./(1+tan(psi).^2));
 
-norme = sqrt(nz.^2+nx.^2+ny.^2)
+%norme = sqrt(nz.^2+nx.^2+ny.^2)
 %% Intégration du champ de normales :
 
 % p_estime = reshape(-nx'./nz,size(masque));
@@ -47,7 +47,7 @@ figure(1);
 scatter((1:length(angle))',angle');
 
 figure(2);
-scatter(parametres_ell(:,2), parametres_ell(:,1));
+scatter(parametres_ell(:,1), parametres_ell(:,2));
 ylim([0 2654]);
 xlim([0 1998]);
 
