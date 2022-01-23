@@ -2,7 +2,7 @@ clear;
 close all;
 
 %% Load ellipses.txt
-ellipses = fopen('ELSD2/ellipses.txt','r');
+ellipses = fopen('ellipses.txt','r');
 
 parametres_ell = fscanf(ellipses,'%f', [7 Inf]);
 parametres_ell = parametres_ell';
@@ -10,13 +10,13 @@ parametres_ell(1,:)
 fclose(ellipses);
 
 %% Filtrage des ellipses ayant un angle < 4.7 (radian)
-% Param Ellipse
 
 angle = abs(parametres_ell(:,7)-parametres_ell(:,6));
-%[indices] = find(angle > 2.7);
-%angle = angle(indices);
+% [indices] = find(angle > 4.7);
+% angle = angle(indices);
+% parametres_ell = parametres_ell(indices,:);
 
-%parametres_ell = parametres_ell(indices,:);
+%% Paramètres de l'ellipse
 % Grand-axe
 a = parametres_ell(:,3);
 % Petit-axe
@@ -35,12 +35,11 @@ ny = tan(psi).*(sqrt(1-nz.^2)./(1+tan(psi).^2));
 %norme = sqrt(nz.^2+nx.^2+ny.^2)
 %% Intégration du champ de normales :
 
-% p_estime = reshape(-nx'./nz,size(masque));
-% p_estime(exterieur) = 0;
-% q_estime = reshape(-ny'./nz',size(masque));
-% q_estime(exterieur) = 0;
-% z_estime = integration_SCS(q_estime,p_estime);
-
+p_estime = reshape(-nx'./nz',[19, 19]);
+size(p_estime)
+q_estime = reshape(-ny'./nz',[19, 19]);
+z_estime = integration_SCS(q_estime,p_estime);
+z_estime = z_estime(:);
 
 %% Retour graphique
 figure(1);
@@ -58,3 +57,6 @@ axis equal
 figure(4);
 quiver3(parametres_ell(:,1), parametres_ell(:,2), zeros(size(nx)), -nx, -ny, nz);
 axis equal
+
+figure(5);
+scatter3(parametres_ell(:,1), parametres_ell(:,2),z_estime);
