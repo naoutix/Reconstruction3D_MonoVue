@@ -41,8 +41,8 @@ e = sqrt(1-(b./a).^2);
 R = 40;
 
 nz = b./R;
-nx = -sqrt(1-nz.^2)./sqrt(1+tan(psi).^2);
-ny = -tan(psi).*(sqrt(1-nz.^2)./(1+tan(psi).^2));
+nx = sqrt(1-nz.^2)./sqrt(1+tan(psi).^2);
+ny = tan(psi).*(sqrt(1-nz.^2)./(1+tan(psi).^2));
 % Solution 1
 N1 = [nx,ny,nz];
 % Solution 2
