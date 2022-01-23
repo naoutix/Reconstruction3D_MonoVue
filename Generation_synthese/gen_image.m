@@ -18,7 +18,7 @@ Z = f(X,Y);
 im = 255*ones(n);
 [Nx,Ny,Nz] = surfnorm(X,Y,Z);
 
-%%Algo
+%% Algo
 for k=100:pas:n-100
     for h=100:pas:n-100
         % Entier 1 à 500
@@ -57,10 +57,10 @@ figure();
 imshow(im);
 imsave
 
-% figure(); 
-% campos([0 0 10]);
-% surf(X,Y,Z,'EdgeColor','None'); 
-% hold on
-% plot3(X(xc,yc),Y(xc,yc),Z(xc,yc),'r*');
+figure(); 
+campos([0 0 10]);
+surf(X,Y,Z,'EdgeColor','None'); 
+hold on
+plot3(X(xc,yc),Y(xc,yc),Z(xc,yc),'r*');
 
 %save data.mat X Y Z im R m;

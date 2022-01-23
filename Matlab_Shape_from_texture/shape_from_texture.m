@@ -9,7 +9,7 @@ parametres_ell = parametres_ell';
 parametres_ell(1,:)
 fclose(ellipses);
 
-[~,index]= sortrows(round(parametres_ell/50),[2 1]);
+[~,index]= sortrows(round(parametres_ell/100),[1 2]);
 parametres_ell = parametres_ell(index,:);
 %% Filtrage des ellipses ayant un angle < 4.7 (radian)
 
@@ -38,11 +38,22 @@ ny = tan(psi).*(sqrt(1-nz.^2)./(1+tan(psi).^2));
 %% Intégration du champ de normales :
 
 p_estime = reshape(-nx'./nz',[19, 19]);
-size(p_estime)
 q_estime = reshape(-ny'./nz',[19, 19]);
 z_estime = integration_SCS(q_estime,p_estime);
-z_estime = z_estime(:);
+z_estime = z_estime(:).*5;
 
+%% Inverse
+nz = b./R;
+nx = -sqrt(1-nz.^2)./sqrt(1+tan(psi).^2);
+ny = -tan(psi).*(sqrt(1-nz.^2)./(1+tan(psi).^2));
+
+%norme = sqrt(nz.^2+nx.^2+ny.^2)
+%% Intégration du champ de normales :
+
+p_estime = reshape(-nx'./nz',[19, 19]);
+q_estime = reshape(-ny'./nz',[19, 19]);
+z_estime_2 = integration_SCS(q_estime,p_estime);
+z_estime_2 = z_estime_2(:).*5;
 %% Retour graphique
 figure(1);
 scatter((1:length(angle))',angle');
@@ -62,3 +73,6 @@ axis equal
 
 figure(5);
 scatter3(parametres_ell(:,1), parametres_ell(:,2),z_estime);
+
+figure(6);
+scatter3(parametres_ell(:,1), parametres_ell(:,2),z_estime_2);
