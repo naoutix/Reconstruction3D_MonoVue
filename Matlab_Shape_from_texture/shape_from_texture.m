@@ -2,13 +2,15 @@ clear;
 close all;
 
 %% Load ellipses.txt
-ellipses = fopen('ellipses.txt','r');
+ellipses = fopen('ELSD2/ellipses.txt','r');
 
 parametres_ell = fscanf(ellipses,'%f', [7 Inf]);
 parametres_ell = parametres_ell';
 parametres_ell(1,:)
 fclose(ellipses);
 
+[~,index]= sortrows(round(parametres_ell/50),[2 1]);
+parametres_ell = parametres_ell(index,:);
 %% Filtrage des ellipses ayant un angle < 4.7 (radian)
 
 angle = abs(parametres_ell(:,7)-parametres_ell(:,6));
