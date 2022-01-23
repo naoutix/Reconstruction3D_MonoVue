@@ -13,7 +13,7 @@ fclose(ellipses);
 % Param Ellipse
 
 angle = abs(parametres_ell(:,7)-parametres_ell(:,6));
-%[indices] = find(angle > 4.7);
+%[indices] = find(angle > 2.7);
 %angle = angle(indices);
 
 %parametres_ell = parametres_ell(indices,:);

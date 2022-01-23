@@ -1,11 +1,10 @@
 close all;
 
 %% Constante
-n = 2000;           % Taille de l'image / nombre de points
-m = 100;            % Nombre de cercles
-nb_ellipse = 18;    % Nombre d'ellipse sur un cote
-R = .1;             % rayon ellipse
-pas = 100;  
+n = 2000; % Taille de l'image / nombre de points
+m = 100; % Nombre de cercles
+R = .1;
+pas = 100;
 
 %[X,Y,Z] = peaks(n);
 f = @(x,y) x + y.^2;
@@ -19,13 +18,13 @@ Z = f(X,Y);
 im = 255*ones(n);
 [Nx,Ny,Nz] = surfnorm(X,Y,Z);
 
-%% Algo
-for k=linspace(pas,n-pas,nb_ellipse)
-    for h=linspace(pas,n-pas,nb_ellipse)
+%%Algo
+for k=100:pas:n-100
+    for h=100:pas:n-100
         % Entier 1 à 500
         % centre = round(rand([1,2])*n);
-        xc = round(k); % centre(1);
-        yc = round(h); % centre(2);
+        xc = k; % centre(1);
+        yc = h; % centre(2);
         im(xc,yc) = 0;
         
         n_barre = [Nx(xc,yc),Ny(xc,yc)];
