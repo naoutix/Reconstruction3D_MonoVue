@@ -46,12 +46,11 @@ R = 40;
 nz = b./R;
 nx = sqrt(1-nz.^2)./sqrt(1+tan(psi).^2);
 ny = tan(psi).*(sqrt(1-nz.^2)./(1+tan(psi).^2));
-nx = -nx;
-ny = -ny;
+
 % Solution vecteurs aléatoires
-% v = rand(size(nx));
-% nx(v < 0.5) = -nx(v < 0.5);
-% ny(v < 0.5) = -ny(v < 0.5);
+v = rand(size(nx));
+nx(v < 0.5) = -nx(v < 0.5);
+ny(v < 0.5) = -ny(v < 0.5);
 % Solution cas vecteurs positifs
 N1 = [nx,ny,nz];
 % Solution cas vecteurs negatifs
@@ -100,7 +99,7 @@ yv = linspace(min(y), max(y), 20);
 [X,Y] = meshgrid(xv, yv);
 Z = griddata(x,y,z,X,Y);
 
-quiver3(x, y, z, nx, ny, nz, 0.1)
+quiver3(x, y, z, nx, ny, nz,0.2)
 hold on
 surf(X,Y,Z)
 
