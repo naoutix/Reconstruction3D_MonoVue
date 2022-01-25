@@ -8,13 +8,14 @@ N_y = Ny;
 N_z = Nz;
 N = [N_x(:) N_y(:) N_z(:)];
 % Vecteur d'éclairage
-s = [0 1 -1];
+s = [0 0.5 1];
 
 % Shape from shading
 I = N*s'/norm(s);
-I1 = -N1*s'/norm(s);
-I2 = -N2*s'/norm(s);
-
+I1 = N1*s'/norm(s);
+I2 = N2*s'/norm(s);
+figure;
+imshow(reshape(I,2000,2000))
 ind = sub2ind(size(N_x),centrex(:),centrey(:));
 
 % MSE
@@ -23,8 +24,12 @@ r2 = sqrt((I(ind)-I2).^2);
 
 % Vecteur 1 -> N1 ; -1 -> N2
 v = ones(size(r1));
-v(r2 > r1) = -1;
+v(r2 < r1) = -1;
 
+I_final = I1;
+I_final(v == -1) = I2(v == -1);
+figure;
+imshow(reshape(I_final,19,19));
 sol = reshape(v,size(centrex));
 
 % Champ de normales final 
