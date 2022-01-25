@@ -15,7 +15,7 @@ I = N*s'/norm(s);
 I1 = -N1*s'/norm(s);
 I2 = -N2*s'/norm(s);
 
-ind = sub2ind(size(N_x)-[1 1],centrex(:),centrey(:));
+ind = sub2ind(size(N_x),centrex(:),centrey(:));
 
 % MSE
 r1 = (I(ind)-I1).^2;

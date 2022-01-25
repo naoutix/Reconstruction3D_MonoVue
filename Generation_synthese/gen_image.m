@@ -7,7 +7,7 @@ R = .1;
 pas = 100;
 
 %[X,Y,Z] = peaks(n);
-f = @(x,y) x + y.^2;
+f = @(x,y) x + y.^2 *0.5;
 p = -2.5;
 q = 2.5;
 
@@ -45,7 +45,7 @@ for k=100:pas:n-100
                 u = (x_t-x)*cos(psi) + (y_t-y)*sin(psi);
                 v = (x_t-x)*sin(psi) - (y_t-y)*cos(psi);
                 
-                if u^2/(a^2) + v^2/(b^2) <= 1.1
+                if u^2/(a^2) + v^2/(b^2) <= 1
                     im(n-i+1,j) = 0;
                 end
             end
