@@ -10,15 +10,15 @@ parametres_ell = parametres_ell';
 fclose(ellipses);
 
 
-% Plus proche voisin
-% [l,L] = size(centrex);
-% list = [];
-% for i = 1:l
-%     for j = 1:L
-%         [~,index] = min(sqrt((parametres_ell(:,1)-centrex(i,j)).^2+(parametres_ell(:,2)-centrey(i,j)).^2));
-%         list = [list; index];
-%     end
-% end
+%Plus proche voisin
+[l,L] = size(centrex);
+list = [];
+for i = 1:l
+    for j = 1:L
+        [~,index] = min(sqrt((parametres_ell(:,1)-centrex(i,j)).^2+(parametres_ell(:,2)-centrey(i,j)).^2));
+        list = [list; index];
+    end
+end
 
 %[~,index]= sortrows(round(parametres_ell/100),[1 2]);
 parametres_ell = parametres_ell(list,:);

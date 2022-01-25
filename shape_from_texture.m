@@ -3,7 +3,7 @@ close all;
 
 load("data.mat");
 %% Load ellipses.txt
-ellipses = fopen('ellipses.txt','r');
+ellipses = fopen('Generation_synthese/ellipses.txt','r');
 
 parametres_ell = fscanf(ellipses,'%f', [7 Inf]);
 parametres_ell = parametres_ell';
