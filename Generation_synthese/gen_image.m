@@ -7,7 +7,7 @@ R = .1;
 pas = 100;
 
 %[X,Y,Z] = peaks(n);
-f = @(x,y) x + y.^2 *0.5;
+f = @(x,y) (x + y.^2) *0.5;
 p = -2.5;
 q = 2.5;
 
@@ -63,4 +63,4 @@ surf(X,Y,Z,'EdgeColor','None');
 hold on
 plot3(X(xc,yc),Y(xc,yc),Z(xc,yc),'r*');
 
-save data.mat centrex centrey;
+save data.mat centrex centrey Nx Ny Nz;

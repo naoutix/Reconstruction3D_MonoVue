@@ -15,7 +15,7 @@ fclose(ellipses);
 list = [];
 for i = 1:l
     for j = 1:L
-        [~,index] = min(sqrt((parametres_ell(:,1)-centrex(i,j)).^2+(parametres_ell(:,2)-centrey(i,j)).^2));
+        [~,index] = min(sqrt((parametres_ell(:,1)-centrey(i,j)).^2+(parametres_ell(:,2)-centrex(i,j)).^2));
         list = [list; index];
     end
 end
@@ -102,4 +102,4 @@ grid on
 set(gca, 'ZLim',[min(z) max(z)])
 shading interp
 
-save normal.dat N1 N2
+save normal N1 N2 parametres_ell;

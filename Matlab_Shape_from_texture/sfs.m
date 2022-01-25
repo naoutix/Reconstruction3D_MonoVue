@@ -1,7 +1,7 @@
 clear;
 close all;
-load data.mat;
-load normal.data
+load normal.mat;
+load '../Generation_synthese/data.mat';
 % Normales du modèle, ground truth
 N_x = Nx;
 N_y = Ny;
@@ -18,8 +18,8 @@ I2 = -N2*s'/norm(s);
 ind = sub2ind(size(N_x),centrex(:),centrey(:));
 
 % MSE
-r1 = (I(ind)-I1).^2;
-r2 = (I(ind)-I2).^2;
+r1 = sqrt((I(ind)-I1).^2);
+r2 = sqrt((I(ind)-I2).^2);
 
 % Vecteur 1 -> N1 ; -1 -> N2
 v = ones(size(r1));
