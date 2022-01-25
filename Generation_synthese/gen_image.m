@@ -11,7 +11,7 @@ f = @(x,y) x + y.^2;
 p = -2.5;
 q = 2.5;
 
-[X,Y] = meshgrid(p:(q-p)/n:q);
+[X,Y] = meshgrid(linspace(p,q,n));
 Z = f(X,Y);
 
 % Image
