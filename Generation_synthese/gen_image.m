@@ -59,8 +59,8 @@ imsave
 
 figure(); 
 campos([0 0 10]);
-surf(X,Y,Z,'EdgeColor','None'); 
+surf(X,Y,Z,'EdgeColor','None');
 hold on
 plot3(X(xc,yc),Y(xc,yc),Z(xc,yc),'r*');
 
-save data.mat centrex centry;
+save data.mat centrex centrey;
