@@ -65,6 +65,6 @@ Z = griddata(x,y,z,X,Y);
 
 size(z)
 size(N_final(3))
-quiver3(x, y, z, nx, ny, nz, 0.2);
+quiver3(x, y, z, nx, ny, nz, 0.08);
 hold on
 surf(X,Y,Z)
