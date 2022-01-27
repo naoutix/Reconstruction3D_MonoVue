@@ -11,8 +11,9 @@
 Projet realiser à l'ENSEEIHT sur la reconstruction 3D mono vue à partir de textons (ellipse) a partir de shade from texton et shading 
 
 ## Comment l'utiliser
-- lancer le script bin/Gen/gen-image.m pour generer une image (format pgm dans bin/data))
+- lancer le script bin/Gen/gen-image.m pour generer une image (format pgm dans bin/data)  
+(normal du modele sauvegarder dans bin/data/data.mat)
 - Compiler le makefile dans Sft/ELSD2/makefile (commande make)
-  * lancer : ./elsd ../data/image.pgm
-- lancer /Sft/shape_from_texture.m
-- lancer /Sft/sfs.m
+  * lancer : `./elsd ../data/image.pgm`
+- lancer /Sft/shape_from_texture.m (normales sauvegarder dans bin/data/normalSft.mat)
+- lancer /Sft/sfs.m                
