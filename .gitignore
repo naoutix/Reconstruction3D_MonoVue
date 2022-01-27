@@ -1,4 +1,7 @@
 # docx
+*.sv
+*.mat
+ELSD2/elsd
 ~$rticle.docx
 # Prerequisites
 *.d
