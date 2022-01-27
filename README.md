@@ -8,7 +8,7 @@
 <img src="bin/Sft/figure/normales_aleatoires.png" width ="200" height="200"/>-Sfs->  
 <img src="bin/Sft/figure/final.png" width ="200" height="200"/>
 # Introduction
-Projet realiser à l'ENSEEIHT sur la reconstruction 3D mono vue à partir de textons (ellipse) a partir de shade from texton et shading 
+Projet realiser à l'ENSEEIHT sur la reconstruction 3D mono-vue à partir de Shade-from-texton et Shade-from-shading 
 
 ## Comment l'utiliser
 - lancer le script bin/Gen/gen-image.m pour generer une image (format pgm dans bin/data)  
